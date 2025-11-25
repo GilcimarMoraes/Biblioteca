@@ -1,33 +1,18 @@
 package modelo;
 
-public class Livro {
-    private String titulo;
-    private Autor autor;        // composição: um livro possui um autor
-    private Categoria categoria; // composição: um livro possui uma categoria
-    private int anoPublicacao;
+public class Livro extends ItemBiblioteca{
+
 
     public Livro(String titulo, Autor autor, Categoria categoria, int anoPublicacao) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.categoria = categoria;
-        this.anoPublicacao = anoPublicacao;
+        
+        super(titulo, autor, categoria, anoPublicacao);
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public int getAnoPublicacao() {
-        return anoPublicacao;
-    }
+    @Override
+    public double calcularMulta(int diasAtraso) {
+        // Exemplo: multa de R$ 0,50 por dia de atraso
+        return diasAtraso * 0.50;
+    }   
 
     // Método que pode ser sobrescrito pelas subclasses (LivroDigital/LivroFisico)
     public String getTipo() {
@@ -40,5 +25,11 @@ public class Livro {
                 " | Autor: " + autor +
                 " | Categoria: " + categoria +
                 " | Ano: " + anoPublicacao;
+    }
+
+    @Override
+    public int getPrazoDevolucao() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPrazoDevolucao'");
     }
 }
