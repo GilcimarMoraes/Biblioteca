@@ -19,6 +19,11 @@ public class LivroFisico extends Livro {
     }
 
     @Override
+    public String getDetalhes() {
+        return "Tipo: Livro Físico | Páginas: " + numeroPaginas + " | Peso: " + pesoEmKg + " kg | Prazo: " + getPrazoDevolucao() + " dias";
+    }
+
+    @Override
     public String getTipo() {
         return "Livro Físico";
     }
