@@ -30,4 +30,11 @@ public abstract class ItemBiblioteca implements Emprestavel {
             System.out.println( "Item indisponível para empréstimo." );
         }
     }
+
+    @Override
+    public void devolver() {
+        this.disponivel = true;
+        this.usuarioEmprestimo = null;
+        System.out.println( titulo + " devolvido com sucesso." );
+    }
 }
