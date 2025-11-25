@@ -43,5 +43,28 @@ public abstract class ItemBiblioteca implements Emprestavel {
         return disponivel;
     }
 
-    
+    //Getters
+    public String getTitulo() {
+        return titulo;
+    }
+    public Autor getAutor() {
+        return autor;
+    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public int getAnoPublicacao() {
+        return anoPublicacao;
+    }
+
+    // Método abstrato para informações de cada tipo
+    public abstract String getDetalhes();
+
+    @Override
+    public String toString() {
+        return getTitulo() + " - " + titulo + " | Autor: " + autor + " | Categoria: " + categoria + " | Ano: " + anoPublicacao + 
+            " | " + ( disponivel ? "Disponível" : "Emprestado para " + usuarioEmprestimo );
+    }
+
+    public abstract String getTipo();
 }

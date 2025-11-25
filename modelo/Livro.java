@@ -9,27 +9,23 @@ public class Livro extends ItemBiblioteca{
     }
 
     @Override
+    public int getPrazoDevolucao() {
+        return 14; // prazo padrão de 14 dias para livros
+    }
+
+    @Override
     public double calcularMulta(int diasAtraso) {
         // Exemplo: multa de R$ 0,50 por dia de atraso
         return diasAtraso * 0.50;
     }   
 
+    @Override
+    public String getDetalhes() {
+        return "Tipo: Livro | Prazo: " + getPrazoDevolucao() + " dias";
+    }
+
     // Método que pode ser sobrescrito pelas subclasses (LivroDigital/LivroFisico)
     public String getTipo() {
-        return "Livro (genérico)";
-    }
-
-    @Override
-    public String toString() {
-        return getTipo() + " - " + titulo +
-                " | Autor: " + autor +
-                " | Categoria: " + categoria +
-                " | Ano: " + anoPublicacao;
-    }
-
-    @Override
-    public int getPrazoDevolucao() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPrazoDevolucao'");
+        return "Livro";
     }
 }
