@@ -17,6 +17,21 @@ public class LivroDigital extends Livro {
         this.formato = formato;
     }
 
+    @Override
+    public int getPrazoDevolucao() {
+        return 10; // prazo reduzido para livros digitais
+    }
+
+    @Override
+    public double calcularMulta( int diasAtraso) {
+        // Exemplo: multa de R$ 0,25 por dia de atraso para livros digitais
+        return diasAtraso * 0.25;
+    }
+
+    public String getDetalhes() {
+        return "Tipo: Livro Digital | Formato: " + formato + " | Tamanho: " + tamanhoEmMb + "MB | Prazo: " + getPrazoDevolucao() + " dias";
+    }
+
     public double getTamanhoEmMb() {
         return tamanhoEmMb;
     }
