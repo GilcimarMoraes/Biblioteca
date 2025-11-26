@@ -15,8 +15,7 @@ public abstract class ItemBiblioteca implements Emprestavel {
         this.categoria = categoria;
         this.anoPublicacao = anoPublicacao;
         this.disponivel = true; // por padrão, o item está disponível
-        this.usuarioEmprestimo = null; // nenhum usuário inicialmente
-    }
+        }
     
     // Implementação básicos dos métodos da interface Emprestavel
     @Override
@@ -62,7 +61,7 @@ public abstract class ItemBiblioteca implements Emprestavel {
 
     @Override
     public String toString() {
-        return getTitulo() + " - " + titulo + " | Autor: " + autor + " | Categoria: " + categoria + " | Ano: " + anoPublicacao + 
+        return getTipo() + " - " + titulo + " | Autor: " + autor + " | Categoria: " + categoria + " | Ano: " + anoPublicacao + 
             " | " + ( disponivel ? "Disponível" : "Emprestado para " + usuarioEmprestimo );
     }
 

@@ -1,35 +1,37 @@
 package negocio;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.ItemBiblioteca;
 import modelo.Livro;
 
 public class Biblioteca {
 
     // Lista de livros (pode ter LivroFisico e LivroDigital, pois ambos são Livro)
-    private List<Livro> livros = new ArrayList<>();
+    private List<ItemBiblioteca> itens = new ArrayList<>();
 
     // Adiciona um livro na biblioteca
-    public void adicionarLivro(Livro livro) {
-        livros.add(livro);
-        System.out.println("Livro adicionado: " + livro.getTitulo());
+    public void adicionarLivro(ItemBiblioteca item) {
+        itens.add(item);
+        System.out.println("Livro adicionado: " + item.getTitulo());
     }
 
     // Remove um livro pelo título (simples para iniciantes)
     public void removerLivroPorTitulo(String titulo) {
-        Livro livroParaRemover = null;
+        ItemBiblioteca itemParaRemover = null;
 
         // Procura o livro com o título informado
-        for (Livro livro : livros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livroParaRemover = livro;
+        for (ItemBiblioteca item : itens) {
+            if (item.getTitulo().equalsIgnoreCase(titulo)) {
+                itemParaRemover = item;
                 break;
             }
         }
 
-        if (livroParaRemover != null) {
-            livros.remove(livroParaRemover);
+        if (itemParaRemover != null) {
+            itens.remove(itemParaRemover);
             System.out.println("Livro removido: " + titulo);
         } else {
             System.out.println("Livro não encontrado: " + titulo);
@@ -37,14 +39,14 @@ public class Biblioteca {
     }
 
     // Lista todos os livros cadastrados
-    public void listarLivros() {
-        System.out.println("=== Lista de Livros da Biblioteca ===");
+    public void listarItens() {
+        System.out.println("=== Itens Completos da Biblioteca ===");
 
-        if (livros.isEmpty()) {
-            System.out.println("Nenhum livro cadastrado.");
+        if (itens.isEmpty()) {
+            System.out.println("Nenhum item cadastrado.");
         } else {
-            for (Livro livro : livros) {
-                System.out.println(livro); // usa o toString de cada livro
+            for (ItemBiblioteca item : itens) {
+                System.out.println(itens); // usa o toString de cada livro
             }
         }
     }
