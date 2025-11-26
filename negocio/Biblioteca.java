@@ -46,7 +46,7 @@ public class Biblioteca {
             System.out.println("Nenhum item cadastrado.");
         } else {
             for (ItemBiblioteca item : itens) {
-                System.out.println(itens); // usa o toString de cada livro
+                System.out.println(item); // usa o toString de cada livro
             }
         }
     }
