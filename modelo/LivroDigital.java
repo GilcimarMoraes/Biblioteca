@@ -28,6 +28,7 @@ public class LivroDigital extends Livro {
         return diasAtraso * 0.25;
     }
 
+    @Override
     public String getDetalhes() {
         return "Tipo: Livro Digital | Formato: " + formato + " | Tamanho: " + tamanhoEmMb + "MB | Prazo: " + getPrazoDevolucao() + " dias";
     }

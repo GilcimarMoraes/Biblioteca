@@ -1,11 +1,9 @@
 package negocio;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import modelo.ItemBiblioteca;
-import modelo.Livro;
 
 public class Biblioteca {
 
@@ -13,9 +11,40 @@ public class Biblioteca {
     private List<ItemBiblioteca> itens = new ArrayList<>();
 
     // Adiciona um livro na biblioteca
-    public void adicionarLivro(ItemBiblioteca item) {
+    public void adicionarItem(ItemBiblioteca item) {
         itens.add(item);
-        System.out.println("Livro adicionado: " + item.getTitulo());
+        System.out.printf("Item Cadastrado - ID: %d | Tipo: %s | Título: %s%n",
+            item.getCodigoCatalogo(), item.getTipo(), item.getTitulo()        );
+    }
+
+    // Remove um item pelo ID
+    public void removerItemPorId( int id ) {
+        ItemBiblioteca itemParaRemover = null;
+
+        // Procura o item com o ID informado
+        for (ItemBiblioteca item : itens) {
+            if (item.getCodigoCatalogo() == id) {
+                itemParaRemover = item;
+                break;
+            }
+        }
+
+        if (itemParaRemover != null) {
+            itens.remove(itemParaRemover);
+            System.out.println("Item removido: ID " + id);
+        } else {
+            System.out.println("Item não encontrado: ID " + id);
+        }
+    }
+
+    //busca um item pelo ID
+    public ItemBiblioteca buscarPorId( int id ) {
+        for( ItemBiblioteca item : itens ) {
+            if( item.getCodigoCatalogo() == id ) {
+                return item;
+            }
+        }
+        return null; // não encontrado
     }
 
     // Remove um livro pelo título (simples para iniciantes)
@@ -32,9 +61,9 @@ public class Biblioteca {
 
         if (itemParaRemover != null) {
             itens.remove(itemParaRemover);
-            System.out.println("Livro removido: " + titulo);
+            System.out.println("Item removido: " + titulo);
         } else {
-            System.out.println("Livro não encontrado: " + titulo);
+            System.out.println("Item não encontrado: " + titulo);
         }
     }
 

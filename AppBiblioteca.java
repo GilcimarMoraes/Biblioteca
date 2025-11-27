@@ -38,15 +38,15 @@ public class AppBiblioteca {
         );
 
         // Cria a Revista
-        //Revista revista1 = new Revista("Veja", autor3, Politica, 2023, 150, "1234-5678");
+        Revista revista1 = new Revista("Veja", autor3, Politica, 2023, 150, "1234-5678");
 
         // Cria a biblioteca
         Biblioteca biblioteca = new Biblioteca();
 
         // Adiciona livros à biblioteca
-        biblioteca.adicionarLivro(livroFisico);
-        biblioteca.adicionarLivro(livroDigital);
-        //biblioteca.adicionarLivro(revista1);
+        biblioteca.adicionarItem(livroFisico);
+        biblioteca.adicionarItem(livroDigital);
+        biblioteca.adicionarItem(revista1);
 
         // Lista todos os livros
         biblioteca.listarItens();
